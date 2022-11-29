@@ -16,7 +16,7 @@ def test_format_number_int_3_digits():
     }
 
 
-def test_format_number_int_4_digits():
+def test_format_number_int_small():
     response = client.post(
         "/numbers/",
         json={"input": 3400},
@@ -24,6 +24,17 @@ def test_format_number_int_4_digits():
     assert response.status_code == 200
     assert response.json() == {
         "formatted": "3.5k",
+    }
+
+
+def test_format_number_float_small():
+    response = client.post(
+        "/numbers/",
+        json={"input": 12.4},
+    )
+    assert response.status_code == 200
+    assert response.json() == {
+        "formatted": "12.4",
     }
 
 
