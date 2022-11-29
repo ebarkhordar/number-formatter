@@ -1,19 +1,12 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 
-
-class Number(BaseModel):
-    input: int | float
-
+from app.router import router
 
 app = FastAPI()
+
+app.include_router(router)
 
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to number formatter. Please visit /docs"}
-
-
-@app.post("/numbers/")
-async def format_number(number: Number):
-    return {"formatted": str(number.input)}
+    return {"message": "Welcome to Number Formatter!"}
