@@ -1,10 +1,12 @@
 from fastapi import APIRouter
 
 from app.schemas import Number
+from app.services import formatter
 
 router = APIRouter()
 
 
 @router.post("/numbers/")
 async def format_number(number: Number):
-    return {"formatted": str(number.input)}
+    formatted = formatter(number.input)
+    return {"formatted": formatted}
