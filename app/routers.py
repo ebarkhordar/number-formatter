@@ -7,6 +7,6 @@ router = APIRouter()
 
 
 @router.post("/numbers/")
-async def format_number(number: Number):
+async def number_formatter(number: Number):
     formatted = formatter(number.input)
     return {"formatted": formatted}
