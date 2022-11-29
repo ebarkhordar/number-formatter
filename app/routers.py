@@ -1,12 +1,21 @@
 from fastapi import APIRouter
 
-from app.schemas import Number
+from app.schemas import NumberIn, NumberOut
 from app.services import formatter
 
 router = APIRouter()
 
 
-@router.post("/numbers/")
-async def number_formatter(number: Number):
+@router.post(
+    "/numbers/",
+    response_model=NumberOut,
+    summary="Prettify a number",
+)
+async def number_formatter(number: NumberIn):
+    """
+    Prettify a number:
+
+    - **formatted**: truncated and prettified string version of input number
+    """
     formatted = formatter(number.input)
-    return {"formatted": formatted}
+    return NumberOut(formatted=formatted)
