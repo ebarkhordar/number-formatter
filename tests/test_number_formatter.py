@@ -23,7 +23,7 @@ def test_format_number_int_small():
     )
     assert response.status_code == 200
     assert response.json() == {
-        "formatted": "3.5k",
+        "formatted": "3.4k",
     }
 
 
