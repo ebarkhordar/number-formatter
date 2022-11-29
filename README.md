@@ -1,5 +1,12 @@
-# number-formatter
-a REST endpoint accepts a numeric type and returns a truncated, "prettified" string version
+# Number Formatter
+A simple [FastAPI](https://fastapi.tiangolo.com/) application with a REST endpoint accepts a numeric type and returns a truncated, "pretty" string version.
+
+Examples:
+* input: 500 output 500
+* input: 3400 outputs 3.5k
+* input: 1000000 output: 1M
+* input: 2500000.34 output: 2.5M
+* input: 1123456789 output: 1.1B
 
 ## Quick Start:
 
